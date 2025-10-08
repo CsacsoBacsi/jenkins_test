@@ -41,7 +41,7 @@ stages {
         }
         post {
             always {
-                echo "This post will always run %MY_VAR%"
+                echo "This post will always run" + " " + "${MY_VAR}"
             }
             success {
                 echo "This post will run only if successful"
