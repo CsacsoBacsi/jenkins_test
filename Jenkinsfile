@@ -5,6 +5,9 @@ agent any
 environment {
     MY_VAR = "Hello, Hun!"
 }
+parameters {
+    string (name: 'MY_NAME', defaultValue: 'Csacsi', description: 'My nick name')
+}
 stages {
     stage ('build') 
     {
@@ -41,7 +44,7 @@ stages {
         }
         post {
             always {
-                echo "This post will always run" + " " + "${MY_VAR}"
+                echo "This post will always run" + " " + "${MY_VAR}" + " " + "${params.MY_NAME}"
             }
             success {
                 echo "This post will run only if successful"
