@@ -2,6 +2,9 @@ pipeline
 {
     
 agent any
+environment {
+    MY_VAR = "Hello, Hun!"
+}
 stages {
     stage ('build') 
     {
@@ -38,7 +41,7 @@ stages {
         }
         post {
             always {
-                echo "This post will always run"
+                echo "This post will always run %MY_VAR%"
             }
             success {
                 echo "This post will run only if successful"
