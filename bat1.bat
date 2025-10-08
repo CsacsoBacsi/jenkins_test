@@ -1,4 +1,4 @@
-cd C:\Users\Csacso\AppData\Local\Jenkins\locrepo\jenkins_test
+cd C:\Users\Csacso\AppData\Local\Jenkins\locrepo\exercise
 if exist pocs/ (
 echo "Directory pocs exists, deleting..."   
  rmdir pocs 
