@@ -24,7 +24,7 @@ stages {
     stage ('bat')
     {
         steps {
-            dir ("C://Users/Csacso/AppData/Local/Jenkins/.jenkins/workspace/pipeline_test/jenkins/scripts") {
+            dir ("C://Users/Csacso/AppData/Local/Jenkins/.jenkins/workspace/pipeline_test") {
                 bat "bat1.bat"
             }
         }
@@ -32,7 +32,7 @@ stages {
     stage ('py')
     {
         steps {
-            dir ("C://Users/Csacso/AppData/Local/Jenkins/.jenkins/workspace/pipeline_test/jenkins/scripts") {
+            dir ("C://Users/Csacso/AppData/Local/Jenkins/.jenkins/workspace/pipeline_test") {
                 bat "python hello.py"
             }
         }
