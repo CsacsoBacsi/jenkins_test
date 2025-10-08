@@ -36,6 +36,17 @@ stages {
                 bat "python hello.py"
             }
         }
+        post {
+            always {
+                echo "This post will always run"
+            }
+            success {
+                echo "This post will run only if successful"
+            }
+            failure {
+                echo "This post will run only if failed"
+            }
+        }
     }
 }
 }
