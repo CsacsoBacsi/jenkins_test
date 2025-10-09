@@ -7,6 +7,7 @@ environment {
 }
 parameters {
     string (name: 'MY_NAME', defaultValue: 'Csacsi', description: 'My nick name')
+    choice choices: ['dev', 'prod'], name: 'Select environment'
 }
 stages {
     stage ('build') 
