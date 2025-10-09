@@ -47,10 +47,14 @@ stages {
     {
         parallel {
             stage ('final_A') {
-                echo "This is the final_A stage"
+                steps {
+                    echo "This is the final_A stage"
+                }
             }
             stage ('final_B') {
-                echo "This is the final_B stage"
+                steps {
+                    echo "This is the final_B stage"
+                }
             }
         }
         post {
