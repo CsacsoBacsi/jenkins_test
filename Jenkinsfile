@@ -42,6 +42,17 @@ stages {
                 bat "python hello.py"
             }
         }
+    }
+    stage ('final')
+    {
+        parallel {
+            stage ('final_A') {
+                echo "This is the final_A stage"
+            }
+            stage ('final_B') {
+                echo "This is the final_B stage"
+            }
+        }
         post {
             always {
                 echo "This post will always run" + " " + "${MY_VAR}" + " " + "${params.MY_NAME}"
