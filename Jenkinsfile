@@ -7,7 +7,7 @@ environment {
 }
 parameters {
     string (name: 'MY_NAME', defaultValue: 'Csacsi', description: 'My nick name')
-    choice choices: ['dev', 'prod'], name: 'Select environment'
+    choice choices: ['dev', 'prod'], name: 'select_environment'
 }
 stages {
     stage ('build') 
@@ -42,6 +42,15 @@ stages {
             dir ("C://Users/Csacso/AppData/Local/Jenkins/.jenkins/workspace/pipeline_test") {
                 bat "python hello.py"
             }
+        }
+    }
+    stage ('when')
+    {
+        when {
+            expression { return params.select_environment == 'dev' }
+        }
+        steps {
+            echo "This stage runs only if the 'dev' environment is selected"
         }
     }
     stage ('final')
