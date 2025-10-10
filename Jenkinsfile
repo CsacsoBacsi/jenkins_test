@@ -8,6 +8,7 @@ environment {
 parameters {
     string (name: 'MY_NAME', defaultValue: 'Csacsi', description: 'My nick name')
     choice choices: ['dev', 'prod'], name: 'select_environment'
+    choice(choices:['Hello','Bye'], description: 'Users Choice', name: 'CHOICE')
 }
 stages {
     stage ('build') 
@@ -50,7 +51,32 @@ stages {
             expression { return params.select_environment == 'dev' }
         }
         steps {
-            echo "This stage runs only if the 'dev' environment is selected"
+            echo "This stage runs only if the 'dev' environment is selected otherwise skipped"
+        }
+    }
+    stage ('input') {
+        steps('Input') {
+            echo "choice: ${CHOICE}"
+            echo "choice params.: " + params.CHOICE
+            echo "choice env: " + env.CHOICE
+        }
+    }
+    stage('Hello') {
+        when { 
+            expression { env.CHOICE == 'Hello' }
+        }   
+            
+        steps('Execute')    {
+            echo 'Say Hello'
+        } 
+    }           
+    stage('Bye') {
+        when {
+            expression {env.CHOICE == 'Bye'}
+        }
+            
+        steps('Execute'){
+            echo 'Say Bye'    
         }
     }
     stage ('final')
