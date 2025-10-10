@@ -45,6 +45,15 @@ stages {
             }
         }
     }
+    stage ('groovy')
+    {
+        steps {
+            script {
+                file = load "script.groovy"
+                file.hello ()
+            }
+        }
+    }
     stage ('when')
     {
         when {
