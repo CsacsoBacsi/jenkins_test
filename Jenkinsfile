@@ -49,7 +49,7 @@ stages {
     {
         steps {
             script {
-                file = load "script.groovy"
+                def file = load "script.groovy"
                 file.hello ()
             }
         }
